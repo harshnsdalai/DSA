@@ -49,11 +49,15 @@ void leftview(Node* root)
 
 int main() 
 { 
-	Node* root = newNode(12); 
-    root->left = newNode(10); 
-    root->right = newNode(30); 
-    root->right->left = newNode(25); 
-    root->right->right = newNode(40); 
+	 Node *root = newNode(20); 
+    root->left = newNode(8); 
+    root->right = newNode(22); 
+    root->left->left = newNode(5); 
+    root->left->right = newNode(3); 
+    root->right->left = newNode(4); 
+    root->right->right = newNode(25); 
+    root->left->right->left = newNode(10); 
+    root->left->right->right = newNode(14);
 
 	leftview(root);
 
