@@ -1,6 +1,5 @@
 
-// C++ implementation to find the sum of all 
-// the parent nodes having child node x 
+
 #include <bits/stdc++.h> 
 
 using namespace std; 

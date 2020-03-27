@@ -1,5 +1,4 @@
-// C++ Program to find diagonal 
-// sum in a Binary Tree 
+
 #include <bits/stdc++.h> 
 using namespace std; 
 
@@ -65,4 +64,4 @@ int main()
 	return 0; 
 } 
 
-// This code is contributed by Aditya Goel 
+

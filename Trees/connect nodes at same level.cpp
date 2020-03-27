@@ -21,32 +21,33 @@ struct Node* newNode(int data)
 } 
 
 
-void connect(Node *p)
-{
-   queue<Node*> q;
-   q.push(p);
-   
-   while(!q.empty())
-   {
-   		Node* curr = q.front();
-   		q.pop();
-   		//cout<<curr->data;
-   		curr->nextRight = q.front();
-   		if (curr->left)
-   		{
+void connect(struct Node* root) 
+{ 
+    queue<Node*> q; 
+    q.push(root); 
 
-   			q.push(curr->left);
-   		}
+    q.push(NULL);  
 
-   		if (curr->right)
-   		{
-   			q.push(curr->right);
-   		}
+    while (!q.empty()) { 
+        Node *curr = q.front(); 
+        q.pop(); 
+        if (curr != NULL) { 
+  
 
-   		
-   }
-}
+            curr->nextRight = q.front(); 
+  
 
+            if (curr->left) 
+                q.push(curr->left);  
+            if (curr->right) 
+                q.push(curr->right); 
+        }  
+         
+ 
+        else if (!q.empty())  
+            q.push(NULL);  
+    } 
+} 
 
 int main() 
 { 
