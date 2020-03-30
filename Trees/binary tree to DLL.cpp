@@ -19,26 +19,29 @@ struct Node* newNode(int data)
 
 }
 
-int util(Node* node, int &res)
+void bToDLL(Node* root, Node** ref)
 {
-	if (!node)
+	if (!root)
 	{
-		return 0;
+		return;
 	}
 
-	int l_max = util(node->left, res);
-	int r_max = util(node->right, res);
+	static Node* prev = NULL;
+	bToDLL(root->left, ref);
+	if (*ref == NULL) 
+	{ 
+		prev = NULL;
+        *ref = root;
+	} 
+    else
+    { 
+        root->left = prev; 
+        prev->right = root; 
+    } 
+    prev = root;
 
+	bToDLL(root->right, ref);
 
-	res = max(res, 1 + l_max + r_max);
-	return max(l_max,r_max) + 1;
-
-}
-int diameter(Node* node) {
-        
-    int res = INT_MIN;
-    util(node, res);
-    return res;
 }
 
 int main()
@@ -51,8 +54,10 @@ int main()
     root->left->right->left  = newNode(10); 
     root->left->right->right = newNode(14); 
     //cout<< findDist(root, 14, 22);
-    cout<<diameter(root);
     
 	
 	return 0;
 }
+
+
+

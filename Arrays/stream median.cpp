@@ -68,9 +68,22 @@ double medians(double *arr, int n)
 
 int main()
 {
-    // stream of integers
     double arr[] = {5, 15, 10, 20, 3};
     int n = sizeof(arr)/sizeof(arr[0]);
     medians(arr, n);
-    return 0;
+    // // stream of integers
+    // int t;
+    // while(t--)
+    // {
+    //     int n;
+    //     cin>>n;
+    //     double arr[n];
+    //     for (int i = 0; i < n; ++i)
+    //     {
+    //         cin>>arr[i];
+    //     }
+        
+    //     medians(arr, n);
+    //     return 0;
+    // }
 }

@@ -1,3 +1,5 @@
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -6,7 +8,7 @@ struct Node
 	int data;
 	struct Node* left;
 	struct Node* right;
-	
+	struct Node* nextRight;
 };
 
 struct Node* newNode(int data)
@@ -15,31 +17,29 @@ struct Node* newNode(int data)
 
 	Node->data = data;
 	Node->left = Node->right = NULL;
+
 	return Node;
-
 }
 
-int util(Node* node, int &res)
-{
-	if (!node)
-	{
-		return 0;
-	}
+/* Function to find LCA of n1 and n2. The function assumes that both 
+n1 and n2 are present in BST */
+Node *lca(Node* root, int n1, int n2) 
+{ 
+	while (root != NULL) 
+	{ 
+		// If both n1 and n2 are smaller than root, then LCA lies in left 
+		if (root->data > n1 && root->data > n2) 
+		root = root->left; 
 
-	int l_max = util(node->left, res);
-	int r_max = util(node->right, res);
+		// If both n1 and n2 are greater than root, then LCA lies in right 
+		else if (root->data < n1 && root->data < n2) 
+		root = root->right; 
 
+		else break; 
+	} 
+	return root; 
+} 
 
-	res = max(res, 1 + l_max + r_max);
-	return max(l_max,r_max) + 1;
-
-}
-int diameter(Node* node) {
-        
-    int res = INT_MIN;
-    util(node, res);
-    return res;
-}
 
 int main()
 {
@@ -50,9 +50,11 @@ int main()
     root->left->right        = newNode(12); 
     root->left->right->left  = newNode(10); 
     root->left->right->right = newNode(14); 
-    //cout<< findDist(root, 14, 22);
-    cout<<diameter(root);
+    lca_in_bst(root,10,14);
     
 	
 	return 0;
 }
+
+
+
