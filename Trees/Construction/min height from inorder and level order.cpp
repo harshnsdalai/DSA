@@ -30,6 +30,8 @@ int minheight(vector<int> &inorder, map<int, int> &index_map, int left, int righ
 	{
 		if(index_map[inorder[i]]<index_map[inorder[mid]])
 		{
+			// GETTING THE ROOT IN SUBARRAY USING THE FACT THAT IN LEVEL ORDER IT WILL HAVE 
+			// LOWEST INDEX
 			mid = i;
 		}
 	}
