@@ -28,6 +28,8 @@ Node* util(int in[],int pre[], int inStrt, int inEnd,map<int,int> &mapp, int &pr
     
    
    int curr = pre[preindex++]; 
+   	//It is supposed that In Preorder the first element is root so we will
+   	// traverse it linearly for finding root .
     Node* root = newNode(curr); 
     if (inStrt==inEnd)
     {
