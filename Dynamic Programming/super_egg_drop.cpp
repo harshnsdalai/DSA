@@ -1,9 +1,5 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-
-
-
 int minTrials(int n, int k)
 {
     int dp[n+1][k+1], res;
